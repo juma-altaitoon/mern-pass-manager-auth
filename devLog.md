@@ -15,6 +15,14 @@
 *   Create README.md File.
 
 ## Commit 2
-*   Signup and SignIn API and respective routes
+*   Signup and SignIn API and respective routes.
 *   Testing on Postman Completed.
 *   Incorporated jwt to signin api.
+
+## Commit 3
+*   User Info and Delete API and respective routes. Postman Tested.
+*   JWT verification through isLoggedIn.js (Further improvements required on authz). Postman Tested.
+*   Installed cookie-parser to send httpOnly enabled cookie with jwt.
+*   Password Model, Controller and Routes initial setup done. (review required).
+*   Created boilerplate frontend react.
+ 

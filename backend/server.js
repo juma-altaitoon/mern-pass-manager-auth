@@ -1,18 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
+
 
 const app = express();
 const port = process.env.PORT;
-app.use(express.json())
+app.use(cookieParser());
+app.use(express.json());
 //Import Routes
-const userRoute = require('./routes/users')
+const userRoute = require('./routes/users');
+const passwordRoute = require('./routes/passwords');
 
 //Mount Routes
 app.use("/", userRoute)
+app.use("/", passwordRoute)
 
 
-mongoose.connect(process.env.mongoDBURL).then(
+mongoose.connect(process.env.mongoDBURL,{useNewUrlParser: true, useUnifiedTopology: true})
+.then(
     console.log("MongoDB Successfully Connected"),
 app.listen(port, ()=> {
     console.log(`Backend is running on Port ${port}`)
