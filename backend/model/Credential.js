@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const passwordSchema = mongoose.Schema({
+const credentialsSchema = mongoose.Schema({
     accountName: {
         type: String,
         required: true,
@@ -24,6 +24,6 @@ const passwordSchema = mongoose.Schema({
     timestamps: true
 });
 
-const Password = mongoose.model("Password", passwordSchema);
+const Credential = mongoose.model("Credential", credentialsSchema);
 
-module.exports = Password;
+module.exports = Credential;

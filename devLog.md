@@ -26,3 +26,7 @@
 *   Password Model, Controller and Routes initial setup done. (review required).
 *   Created boilerplate frontend react.
  
+## Commit 4
+*   Replaced 'Password' Model with 'Credential' to avoid confusion.
+*   Testing on Postman Completed.
+*   Created 'helper/cryptography.js' to move (en/de)cryption functions.
