@@ -30,3 +30,10 @@
 *   Replaced 'Password' Model with 'Credential' to avoid confusion.
 *   Testing on Postman Completed.
 *   Created 'helper/cryptography.js' to move (en/de)cryption functions.
+
+## Commit 5
+*   ### Frontend:
+*       Created a layout with Header & Footer.
+*       Created HomePage and relevant components.
+*       Created Signup and Signin pages.
+*       Created Credential CRUD pages and components.
