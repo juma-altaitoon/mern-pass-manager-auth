@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../../components/HeroSection';
-import { Container, Card, CardActionArea, Typography, Rating, CardActions} from '@mui/material'
-import { CardMedia, CardContent, CardHeader, Grid } from '@mui/material'
+import { Container, Card, CardActionArea, Typography, Rating, CardActions, Paper, Divider} from '@mui/material'
+import { Box, CardMedia, CardContent, CardHeader, Grid } from '@mui/material'
 
 export default function HomePage() {
 
@@ -19,22 +19,18 @@ export default function HomePage() {
 
     ]
 
-
     return (
-        <>
-            <Container className='home-page'>
-                {/* Hero Section */}
-                <HeroSection/>
-            </Container>
-            <br/>
+        <Box justifyContent='center' gutterBottom>
+            <HeroSection min-height='80vh'/>
+            <Divider/>
             {/* Content Section */}
-            <Container className='content'>
-                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
-                    <Grid item xs={12} alignText="center"><h2>Features</h2></Grid>
+            <Container className='content'gutterBottom>
+                <Grid container direction="row" justifyContent='center' alignItems="center" spacing={4}>
+                    <Grid item xs={12} aligntext="center"><h2>Features</h2></Grid>
                                
                     {features.map((feature, index) => (
                         <Grid item xs={6} justify="center">
-                            <Card key={index}>
+                            <Paper key={index} elevation={3}>
                                 <CardActionArea>
                                     <CardMedia component="img" height="140"/>
                                     <CardContent>
@@ -46,13 +42,13 @@ export default function HomePage() {
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
-                            </Card>    
+                            </Paper>    
                         </Grid>    
                     ))}
                 </Grid> 
             </Container>
-            <br/>
-            <Container className='testimonials'>
+            <Divider/>
+            <Container className='testimonials' gutterBottom>
                 <Grid container direction="row" justify="center" alignItems="center" spacing={2}>
                     <Grid item xs={12}><h2>Testimonials</h2></Grid>
                         {testimonials.map(( testimonial, index ) => (
@@ -72,7 +68,7 @@ export default function HomePage() {
                         ))}
                 </Grid>
             </Container> 
-            <br/>      
-        </>
+            <Divider/>      
+        </Box>
     )
 }

@@ -17,7 +17,7 @@ import { FormGroup, FormControlLabel, Switch } from '@mui/material';
 
 const pages = [
     { title: 'About', link: '/about' },
-    { title: 'Page2', link: "" },
+    { title: 'Credentials', link: "/credentials" },
     { title: 'Page3', link: "" },
 ];
 const settings = ['Profile', 'Dashboard', 'Logout'];
@@ -125,7 +125,7 @@ export default function NavMenu() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -137,7 +137,7 @@ export default function NavMenu() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            CRED-GUARD
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-evenly' }}>

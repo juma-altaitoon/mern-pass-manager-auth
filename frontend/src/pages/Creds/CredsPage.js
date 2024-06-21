@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { DataGrid } from '@mui/x-data-grid';
 import CredCreate from './components/CredCreate';
 import CredEdit from './components/CredEdit';
+import Cred from './components/Cred';
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -42,13 +43,23 @@ export default function Creds(props){
             console.log("Error loading Creds!", error)
         })
     }
+
+    const credentials = creds.map((credential, index) => (
+        <Cred key={index} {...credential} edit={viewCred} delete={deleteCred}/>
+    ))
     
     const getCred = (id) => {
-        // Axios.get()
+        Axios.get("credential/readone", id)
+        .then((res) => {
+            console.log("Single Cred retrieved!", res);
+        })
+        .catch(error => {
+            console.log("Failed Single Cred Retrieval", error);
+        })
     }
 
     const getPassword = (id) => {
-        Axios.get("credential/read")
+        Axios.get("credential/password", id)
         .then((res) => {
             console.log("Successful Password Retrieval!", res);
         })
@@ -68,7 +79,7 @@ export default function Creds(props){
         })
     }
     const viewCred = (id) => {
-        Axios.get("credential/edit")
+        Axios.get("credential/readone", id)
         .then((res) => {
             let cred = res
             setIsEdit(true);
@@ -102,6 +113,10 @@ export default function Creds(props){
             <Typography component="h1" variant="h3">
                 Creds
             </Typography>
+            <Box sx={{display: 'flex', flexwrap: 'wrap' }}>
+                {credentials}
+            </Box>
+            
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows={creds}
@@ -114,6 +129,7 @@ export default function Creds(props){
                     pageSizeOptions={[5, 10]}
                 />
             </div>
+            
             <div>
             {!isEdit && (
                 <CredCreate add={addCred}/>
@@ -124,7 +140,6 @@ export default function Creds(props){
                 <CredEdit key={selectedCred.id} cred={selectedCred} edit={editCred} setIsEdit={setIsEdit} />
             )}
             </div>
-
         </>
     )
 }

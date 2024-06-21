@@ -37,3 +37,7 @@
 *       Created HomePage and relevant components.
 *       Created Signup and Signin pages.
 *       Created Credential CRUD pages and components.
+
+## Commit 6
+*   ### Frontend:
+*       Minor updates to HomePage, NavMenu, App and index.css .

@@ -85,6 +85,22 @@ exports.cred_password_get = async (req, res) => {
     }
     return res.json({password: decryptedPassword})
 }
+// Credential Read One
+exports.cred_readOne_get = async (req, res) => {
+    let credential;
+    try {
+        credential = await Credential.findById(req.body.id, "-encryptedPassword")
+    } catch (error) {
+        console.log(error)
+        return new Error(error)
+    }
+    if(!credential){
+        return res.status(400).json({message: "Credential Not Found"});
+    }
+    return res.status(200).json({credential});
+    
+}
+
 // Credential Update
 exports.cred_update_put = async (req, res) =>{
     const credId = req.body.id
